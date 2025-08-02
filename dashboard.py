@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+from course import CourseClass
 class RMS:
     def __init__(self, root):
         self.root = root
@@ -21,7 +22,7 @@ class RMS:
         M_Frame = LabelFrame(self.root, text="Menu", font = ("times new roman",15, "bold"), bd=5, relief=GROOVE, bg="white")
         M_Frame.place(x=10, y=70, width=1340, height=80)
 
-        btn_course = Button(M_Frame, text = "Courses", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=20, y=5, width=200, height=40)
+        btn_course = Button(M_Frame, text = "Courses", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2", command=self.add_course).place(x=20, y=5, width=200, height=40)
         btn_student = Button(M_Frame, text = "Students", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=240, y=5, width=200, height=40)
         btn_result = Button(M_Frame, text = "Results", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=460, y=5, width=200, height=40)
         btn_student_result = Button(M_Frame, text = "View Student Results", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=680, y=5, width=200, height=40)
@@ -54,6 +55,11 @@ class RMS:
         footer = Label(self.root, text="SRMS - Student Result Management System", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white")
         footer.place(x=0, y=650, relwidth=1, height=50)
         footer.pack(side=BOTTOM, fill=X)
+
+    def add_course(self):
+        self.new_window = Toplevel(self.root)
+        self.new_obj = CourseClass(self.new_window)
+
 
 if __name__ == "__main__":
     root = Tk()
