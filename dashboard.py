@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 from course import CourseClass
+from student import StudentClass
 class RMS:
     def __init__(self, root):
         self.root = root
@@ -23,7 +24,7 @@ class RMS:
         M_Frame.place(x=10, y=70, width=1340, height=80)
 
         btn_course = Button(M_Frame, text = "Courses", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2", command=self.add_course).place(x=20, y=5, width=200, height=40)
-        btn_student = Button(M_Frame, text = "Students", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=240, y=5, width=200, height=40)
+        btn_student = Button(M_Frame, text = "Students", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2", command=self.add_student).place(x=240, y=5, width=200, height=40)
         btn_result = Button(M_Frame, text = "Results", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=460, y=5, width=200, height=40)
         btn_student_result = Button(M_Frame, text = "View Student Results", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=680, y=5, width=200, height=40)
         btn_Logout = Button(M_Frame, text = "Logout", font=("times new roman", 15, "bold"), bg="#033e3e", fg="white", bd=0, cursor="hand2").place(x=900, y=5, width=200, height=40)
@@ -59,6 +60,10 @@ class RMS:
     def add_course(self):
         self.new_window = Toplevel(self.root)
         self.new_obj = CourseClass(self.new_window)
+
+    def add_student(self):
+        self.new_window = Toplevel(self.root)
+        self.new_obj = StudentClass(self.new_window)
 
 
 if __name__ == "__main__":
