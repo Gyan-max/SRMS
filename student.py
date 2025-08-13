@@ -289,7 +289,6 @@ class StudentClass:
                         self.var_course.get(),
                         self.txt_address.get("1.0", END).strip(),
                         self.var_roll_no.get().strip()))
-            
             conn.commit()
             messagebox.showinfo("Success", "Student updated successfully", parent=self.root)
             self.show_students()
